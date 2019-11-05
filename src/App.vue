@@ -1,19 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Harvard Art Mueseum logo" src="./assets/HAM Logo.png">
+    <Video msg="Welcome to Your Daily Harvard Art Museum"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Video from './components/Video.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Video
+  },
+  data() {
+    return {
+      video: [],
+      isLoading: true,
+      error: ''
+    }
+  },
+  mounted: function() {
+    this.getVideos() 
+  },
+  methods: {
+    getVideos: async function() {
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/video?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        console.log(data.records)
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 }
+
+
 </script>
 
 <style>
