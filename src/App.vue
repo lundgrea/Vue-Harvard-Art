@@ -91,6 +91,12 @@ export default {
     this.getColors()
     this.getCultures()
     this.getExhibitions()
+    this.getGalleries()
+    this.getImages()
+    this.getObjects()
+    this.getPeriods()
+    this.getPublications()
+    this.getTechniques()
   },
   methods: {
     generateRandom: function () {
@@ -143,7 +149,7 @@ export default {
      getExhibitions: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/culture?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch('https://api.harvardartmuseums.org/exhibition?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
         const data = await response.json()
         const exhibitions = data.records
         this.exhibition = exhibitions[index]
@@ -151,22 +157,74 @@ export default {
         this.error = errorMsg
       }
     },
+    getGalleries: async function() {
+      let index = this.generateRandom()
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/gallery?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        const galleries = data.records
+        this.gallery = galleries[index]
+      } catch (errorMsg) {
+        this.error = errorMsg
+      }
+    },
+      getImages: async function() {
+      let index = this.generateRandom()
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/image?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        const images = data.records
+        this.image = images[index]
+      } catch (errorMsg) {
+        this.error = errorMsg
+      }
+    },
+    getObjects: async function() {
+      let index = this.generateRandom()
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/object?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        const objects = data.records
+        this.object = objects[index]
+      } catch (errorMsg) {
+        this.error = errorMsg
+      }
+    },
+    getPeriods: async function() {
+      let index = this.generateRandom()
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/period?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        const periods = data.records
+        this.period = periods[index]
+      } catch (errorMsg) {
+        this.error = errorMsg
+      }
+    },
+    getPublications: async function() {
+      let index = this.generateRandom()
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/publication?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        const publications = data.records
+        this.publication = publications[index]
+      } catch (errorMsg) {
+        this.error = errorMsg
+      }
+    },
+    getTechniques: async function() {
+      let index = this.generateRandom()
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/technique?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        const techniques = data.records
+        this.technique = techniques[index]
+      } catch (errorMsg) {
+        this.error = errorMsg
+      }
+    },
   }
 }
-
-
-
-//could do 
-//culture - https://api.harvardartmuseums.org/culture?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//exhibition - https://api.harvardartmuseums.org/exhibition?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//gallery - https://api.harvardartmuseums.org/gallery?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//image - https://api.harvardartmuseums.org/image?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//object - https://api.harvardartmuseums.org/object?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//period - https://api.harvardartmuseums.org/period?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//publication - https://api.harvardartmuseums.org/publication?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//technique - https://api.harvardartmuseums.org/technique?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-
-
 
 
 </script>
