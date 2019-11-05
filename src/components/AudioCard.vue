@@ -1,18 +1,18 @@
 <template>
-  <div class="video-card">
-    <section v-for="video in videos" :key="video.id">
-      <h4>{{ video.description }}</h4>
-      <p>{{ video.primaryurl}}</p>
+  <div class="audio-card">
+    <section v-for="audio in audios" :key="audio.id">
+      <h4>{{ audio.description }}</h4>
+      <a :href="audio.primaryurl">Listen</a>
+      <a :href="audio.transcripturl">Read</a>
     </section>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'video-card',
+  name: 'audio-card',
   props: {
-    msg: String,
-    videos: Array
+    audios: Array
   }
 }
 </script>
