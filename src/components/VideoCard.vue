@@ -1,17 +1,25 @@
 <template>
-  <div class="video">
-    <h1>{{ msg }}</h1>
+  <div class="video-card">
+    <section v-for="video in videos" :key="video.id">
+      <h2>{{ video.description }}</h2>
+      <p>{{ video.primaryurl}}</p>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'video',
+  name: 'video-card',
   props: {
-    msg: String
+    msg: String,
+    videos: Array
   }
 }
 </script>
+
+
+
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
