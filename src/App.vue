@@ -239,7 +239,7 @@ export default {
     getTechniques: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch(`https://api.harvardartmuseums.org/technique?{this.key}`)
+        const response = await fetch(`https://api.harvardartmuseums.org/technique?${this.key}`)
         const data = await response.json()
         const techniques = data.records
         this.technique = techniques[index]
