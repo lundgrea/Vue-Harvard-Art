@@ -105,7 +105,8 @@ export default {
       publication: {},
       technique: {},
       isLoading: true,
-      error: ''
+      error: '',
+      key: process.env.VUE_APP_KEY, 
     }
   },
   mounted: function() {
@@ -128,7 +129,7 @@ export default {
     getVideos: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/video?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/video?${this.key}`)
         const data = await response.json()
         const videos = data.records
         this.video = videos[index]
@@ -139,7 +140,7 @@ export default {
     getAudios: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/audio?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/audio?${this.key}`)
         const data = await response.json()
         const audios = data.records
         this.audio = audios[index]
@@ -150,7 +151,7 @@ export default {
     getColors: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/color?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/color?${this.key}`)
         const data = await response.json()
         const colors = data.records
         this.color = colors[index]
@@ -161,7 +162,7 @@ export default {
     getCultures: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/culture?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/culture?${this.key}`)
         const data = await response.json()
         const cultures = data.records
         this.culture = cultures[index]
@@ -172,7 +173,7 @@ export default {
      getExhibitions: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/exhibition?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/exhibition?${this.key}`)
         const data = await response.json()
         const exhibitions = data.records
         this.exhibition = exhibitions[index]
@@ -183,7 +184,7 @@ export default {
     getGalleries: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/gallery?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/gallery?${this.key}`)
         const data = await response.json()
         const galleries = data.records
         this.gallery = galleries[index]
@@ -194,7 +195,7 @@ export default {
       getImages: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/image?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/image?${this.key}`)
         const data = await response.json()
         const images = data.records
         this.image = images[index]
@@ -205,7 +206,7 @@ export default {
     getObjects: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/object?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/object?${this.key}`)
         const data = await response.json()
         const objects = data.records
         this.object = objects[index]
@@ -216,7 +217,7 @@ export default {
     getPeriods: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/period?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/period?${this.key}`)
         const data = await response.json()
         const periods = data.records
         this.period = periods[index]
@@ -227,7 +228,7 @@ export default {
     getPublications: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/publication?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/publication?${this.key}`)
         const data = await response.json()
         const publications = data.records
         this.publication = publications[index]
@@ -238,7 +239,7 @@ export default {
     getTechniques: async function() {
       let index = this.generateRandom()
       try { 
-        const response = await fetch('https://api.harvardartmuseums.org/technique?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const response = await fetch(`https://api.harvardartmuseums.org/technique?{this.key}`)
         const data = await response.json()
         const techniques = data.records
         this.technique = techniques[index]
