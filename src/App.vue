@@ -43,16 +43,14 @@
 import VideoCard from './components/VideoCard.vue'
 import AudioCard from './components/AudioCard.vue'
 import ColorCard from './components/ColorCard.vue'
-
-//could do 
-//culture - https://api.harvardartmuseums.org/culture?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//exhibition - https://api.harvardartmuseums.org/exhibition?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//gallery - https://api.harvardartmuseums.org/gallery?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//image - https://api.harvardartmuseums.org/image?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//object - https://api.harvardartmuseums.org/object?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//period - https://api.harvardartmuseums.org/period?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//publication - https://api.harvardartmuseums.org/publication?apikey=8520a750-fe96-11e9-9058-a9d79115374a
-//technique - https://api.harvardartmuseums.org/technique?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+import CultureCard from './components/CultureCard.vue'
+import ExhibitionCard from './components/ExhibitionCard.vue'
+import GalleryCard from './components/GalleryCard.vue'
+import ImageCard from './components/ImageCard.vue'
+import ObjectCard from './components/ObjectCard.vue'
+import PeriodCard from './components/PeriodCard.vue'
+import PublicationCard from './components/PublicationCard.vue'
+import TechniqueCard from './components/TechniqueCard.vue'
 
 
 export default {
@@ -60,16 +58,29 @@ export default {
   components: {
     VideoCard,
     AudioCard,
-    ColorCard
+    ColorCard,
+    CultureCard,
+    ExhibitionCard,
+    GalleryCard,
+    ImageCard,
+    ObjectCard,
+    PeriodCard,
+    PublicationCard,
+    TechniqueCard
   },
   data() {
     return {
-      videos: [],
       video: {},
-      audios: [],
       audio: {},
-      colors: [],
       color: {},
+      culture: {},
+      exhibition: {},
+      gallery: {},
+      image: {},
+      object: {},
+      period: {},
+      publication: {},
+      technique: {},
       isLoading: true,
       error: ''
     }
@@ -88,8 +99,8 @@ export default {
       try { 
         const response = await fetch('https://api.harvardartmuseums.org/video?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
         const data = await response.json()
-        this.videos = data.records
-        this.video = this.videos[index]
+        const videos = data.records
+        this.video = videos[index]
       } catch (errorMsg) {
         this.error = errorMsg
       }
@@ -99,8 +110,8 @@ export default {
       try { 
         const response = await fetch('https://api.harvardartmuseums.org/audio?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
         const data = await response.json()
-        this.audios = data.records
-        this.audio = this.audios[index]
+        const audios = data.records
+        this.audio = audios[index]
       } catch (errorMsg) {
         this.error = errorMsg
       }
@@ -110,14 +121,39 @@ export default {
       try { 
         const response = await fetch('https://api.harvardartmuseums.org/color?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
         const data = await response.json()
-        this.colors = data.records
-        this.color = this.colors[index]
+        const colors = data.records
+        this.color = colors[index]
+      } catch (errorMsg) {
+        this.error = errorMsg
+      }
+    },
+    getCultures: async function() {
+      let index = this.generateRandom()
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/culture?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        const cultures = data.records
+        this.culture = cultures[index]
       } catch (errorMsg) {
         this.error = errorMsg
       }
     },
   }
 }
+
+
+
+//could do 
+//culture - https://api.harvardartmuseums.org/culture?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//exhibition - https://api.harvardartmuseums.org/exhibition?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//gallery - https://api.harvardartmuseums.org/gallery?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//image - https://api.harvardartmuseums.org/image?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//object - https://api.harvardartmuseums.org/object?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//period - https://api.harvardartmuseums.org/period?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//publication - https://api.harvardartmuseums.org/publication?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//technique - https://api.harvardartmuseums.org/technique?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+
+
 
 
 </script>
