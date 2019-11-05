@@ -1,6 +1,6 @@
 <template>
   <div class="video-card">
-    <section v-for="video in videos" :key="video.id">
+    <section :key="video.id">
       <h4>{{ video.description }}</h4>
       <p>{{ video.primaryurl}}</p>
     </section>
@@ -11,8 +11,7 @@
 export default {
   name: 'video-card',
   props: {
-    msg: String,
-    videos: Array
+    video: Object
   }
 }
 </script>

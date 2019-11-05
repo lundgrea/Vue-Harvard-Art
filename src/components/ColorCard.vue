@@ -1,6 +1,6 @@
 <template>
   <div class="color-card">
-    <section v-for="color in colors" :key="color.id">
+    <section :key="color.id">
       <div class="color-card-hex" v-bind:style="{ backgroundColor: color.hex}"
       ></div>
       <h4>{{ color.name }}</h4>    
@@ -16,7 +16,7 @@
 export default {
   name: 'color-card',
   props: {
-    colors: Array
+    color: Object
   },
   methods: {
 
@@ -45,5 +45,6 @@ a {
 .color-card-hex {
   height: 100px;
   width: 100px;
+  margin: auto;
   }
 </style>

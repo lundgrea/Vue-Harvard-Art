@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <img alt="Harvard Art Mueseum logo" src="./assets/HAM-logo-reduced.png">
-    <h1>Daily Art Exhibit</h1>
+    <h1>Daily Art from Harvard Art Mueseum</h1>
+
     <h2>Today's Audio</h2>
-    <audio-card :audios="audios" />
+    <audio-card :audio="audio" />
 
     <h2>Today's Video</h2>
-    <video-card :videos="videos" />
-
+    <video-card :video="video" />
 
     <h2>Today's Color</h2>
-    <color-card :colors="colors" />
+    <color-card :color="color" />
 
   </div>
 </template>
@@ -19,6 +19,17 @@
 import VideoCard from './components/VideoCard.vue'
 import AudioCard from './components/AudioCard.vue'
 import ColorCard from './components/ColorCard.vue'
+
+//could do 
+//culture - https://api.harvardartmuseums.org/culture?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//exhibition - https://api.harvardartmuseums.org/exhibition?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//gallery - https://api.harvardartmuseums.org/gallery?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//image - https://api.harvardartmuseums.org/image?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//object - https://api.harvardartmuseums.org/object?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//period - https://api.harvardartmuseums.org/period?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//publication - https://api.harvardartmuseums.org/publication?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+//technique - https://api.harvardartmuseums.org/technique?apikey=8520a750-fe96-11e9-9058-a9d79115374a
+
 
 export default {
   name: 'app',
@@ -30,8 +41,11 @@ export default {
   data() {
     return {
       videos: [],
+      video: {},
       audios: [],
+      audio: {},
       colors: [],
+      color: {},
       isLoading: true,
       error: ''
     }
@@ -42,29 +56,38 @@ export default {
     this.getColors()
   },
   methods: {
+    generateRandom: function () {
+      return Math.round(Math.random() * 10)
+    },
     getVideos: async function() {
+      let index = this.generateRandom()
       try { 
         const response = await fetch('https://api.harvardartmuseums.org/video?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
         const data = await response.json()
         this.videos = data.records
+        this.video = this.videos[index]
       } catch (errorMsg) {
         this.error = errorMsg
       }
     },
     getAudios: async function() {
+      let index = this.generateRandom()
       try { 
         const response = await fetch('https://api.harvardartmuseums.org/audio?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
         const data = await response.json()
         this.audios = data.records
+        this.audio = this.audios[index]
       } catch (errorMsg) {
         this.error = errorMsg
       }
     },
     getColors: async function() {
+      let index = this.generateRandom()
       try { 
         const response = await fetch('https://api.harvardartmuseums.org/color?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
         const data = await response.json()
         this.colors = data.records
+        this.color = this.colors[index]
       } catch (errorMsg) {
         this.error = errorMsg
       }

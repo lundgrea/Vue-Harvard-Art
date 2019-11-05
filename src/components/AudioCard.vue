@@ -1,6 +1,6 @@
 <template>
   <div class="audio-card">
-    <section v-for="audio in audios" :key="audio.id">
+    <section :key="audio.id">
       <h4>{{ audio.description }}</h4>    
       <ul>
       <li><a :href="audio.primaryurl">Listen</a></li>
@@ -17,7 +17,7 @@
 export default {
   name: 'audio-card',
   props: {
-    audios: Array
+    audio: Object
   },
   methods: {
 
