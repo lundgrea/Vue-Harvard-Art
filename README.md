@@ -1,9 +1,7 @@
 # HAM Art Randomizer
-Harvard Art Mueseum Art Randomizer
+Harvard Art mm Museum Art Randomizer
 
 Visit the deployed Vue.js [HAM Art Randomizer](https://vue-harvard-art.herokuapp.com/) application.
-
-
 
 ## Developer Setup
 
@@ -15,6 +13,8 @@ Visit the deployed Vue.js [HAM Art Randomizer](https://vue-harvard-art.herokuapp
     - Lint and fix files: `npm run lint`
 
 ## Description 
+
+HAM Art Randomizer is a Vue.js application built as a take home challenge to demonstrate implementing a framework I had previously never worked in. The application works with the [Harvard Art Museum API](https://github.com/harvardartmuseums/api-docs) serving up a random collection of Harvard Art Museum videos, images, audio pieces, colors, etc. The application was build as an individual project over the course of four days. Given that I had never previously worked with Vue, and most of my experience with JS frameworks is with React, it was great to get a feel for developing with Vue. I am eager to continue working with the framework into the future. 
 
 ## Screenshot and Wireframe
 
