@@ -1,7 +1,12 @@
 <template>
   <div class="object-card">
     <section :key="object.id">
-      <h4>{{ object.description }}</h4>    
+      <h4>Century: {{ object.century }}</h4>    
+      <h5>Classification: {{ object.classification }}</h5>    
+      <h6>Culture: {{ object.culture }}</h6>   
+      <p>Dated: {{ object.dated }}</p> 
+      <p>Department: {{ object.department }}</p> 
+
     </section>
   </div>
 </template>

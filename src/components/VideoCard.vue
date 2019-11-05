@@ -2,7 +2,7 @@
   <div class="video-card">
     <section :key="video.id">
       <h4>{{ video.description }}</h4>
-      <p>{{ video.primaryurl}}</p>
+      <a :href="video.primaryurl">Watch</a>
     </section>
   </div>
 </template>

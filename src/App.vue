@@ -3,38 +3,61 @@
     <img alt="Harvard Art Mueseum logo" src="./assets/HAM-logo-reduced.png">
     <h1>HAM Art Randomizer</h1>
 
-    <h2>Randomized Audio</h2>
-    <audio-card :audio="audio" />
+    <div class="card">
+      <h2>Audio</h2>
+      <audio-card :audio="audio" />
+    </div>
 
-    <h2>Randomized Video</h2>
+    <div class="card">
+    <h2>Video</h2>
     <video-card :video="video" />
+    </div>
 
-    <h2>Randomized Color</h2>
-    <color-card :color="color" />
+    <div class="card">
+      <h2>Color</h2>
+      <color-card :color="color" />
+    </div>
 
-    <h2>Randomized Culture</h2>
-    <culture-card :culture="culture" />
+    <div class="card">
+      <h2>Image</h2>
+      <image-card :image="image" />
+    </div>
 
-    <h2>Randomized Exhibition</h2>
-    <exhibition-card :exhibition="exhibition" />
+    <div class="card">
+      <h2>Culture</h2>
+      <culture-card :culture="culture" />
+    </div>
 
-    <h2>Randomized Gallery</h2>
-    <gallery-card :gallery="gallery" />
+    <div class="card">
+      <h2>Exhibition</h2>
+      <exhibition-card :exhibition="exhibition" />
+    </div>
 
-    <h2>Randomized Image</h2>
-    <image-card :image="image" />
+    <div class="card">
+      <h2>Gallery</h2>
+      <gallery-card :gallery="gallery" />
+    </div>
 
-    <h2>Randomized Object</h2>
-    <object-card :object="object" />
+    <div class="card">
+      <h2>Object</h2>
+      <object-card :object="object" />
+    </div>
 
-    <h2>Randomized Period</h2>
-    <period-card :period="period" />
+    <div class="card">
+      <h2>Period</h2>
+      <period-card :period="period" />
+    </div>
 
-    <h2>Randomized Publication</h2>
-    <publication-card :publication="publication" />
+    <div class="card">
+      <h2>Publication</h2>
+      <publication-card :publication="publication" />
+    </div>
 
-    <h2>Randomized Technique</h2>
-    <technique-card :technique="technique" />
+    <div class="card">
+    <h2>Technique</h2>
+    <technique-card :technique="technique" />    
+    </div>
+
 
   </div>
 </template>
@@ -237,5 +260,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.card {
+  border: 2px solid black;
+  width: 60%;
+  margin: auto;
 }
 </style>
