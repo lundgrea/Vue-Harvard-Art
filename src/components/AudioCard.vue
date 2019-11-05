@@ -1,23 +1,29 @@
 <template>
   <div class="audio-card">
     <section v-for="audio in audios" :key="audio.id">
-      <h4>{{ audio.description }}</h4>
-      <a :href="audio.primaryurl">Listen</a>
-      <a :href="audio.transcripturl">Read</a>
+      <h4>{{ audio.description }}</h4>    
+      <ul>
+      <li><a :href="audio.primaryurl">Listen</a></li>
+      <li><a v-if="audio.transcripturl !== null" :href="audio.transcripturl">Read</a></li>
+      </ul>
     </section>
   </div>
 </template>
+
+
+
 
 <script>
 export default {
   name: 'audio-card',
   props: {
     audios: Array
+  },
+  methods: {
+
   }
 }
 </script>
-
-
 
 
 
