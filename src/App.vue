@@ -12,6 +12,30 @@
     <h2>Randomized Color</h2>
     <color-card :color="color" />
 
+    <h2>Randomized Culture</h2>
+    <culture-card :culture="culture" />
+
+    <h2>Randomized Exhibition</h2>
+    <exhibition-card :exhibition="exhibition" />
+
+    <h2>Randomized Gallery</h2>
+    <gallery-card :gallery="gallery" />
+
+    <h2>Randomized Image</h2>
+    <image-card :image="image" />
+
+    <h2>Randomized Object</h2>
+    <object-card :object="object" />
+
+    <h2>Randomized Period</h2>
+    <period-card :period="period" />
+
+    <h2>Randomized Publication</h2>
+    <publication-card :publication="publication" />
+
+    <h2>Randomized Technique</h2>
+    <technique-card :technique="technique" />
+
   </div>
 </template>
 
