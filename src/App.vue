@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <img alt="Harvard Art Mueseum logo" src="./assets/HAM-logo-reduced.png">
-    <h1>Daily Art from Harvard Art Mueseum</h1>
+    <h1>HAM Art Randomizer</h1>
 
-    <h2>Today's Audio</h2>
+    <h2>Randomized Audio</h2>
     <audio-card :audio="audio" />
 
-    <h2>Today's Video</h2>
+    <h2>Randomized Video</h2>
     <video-card :video="video" />
 
-    <h2>Today's Color</h2>
+    <h2>Randomized Color</h2>
     <color-card :color="color" />
 
   </div>
