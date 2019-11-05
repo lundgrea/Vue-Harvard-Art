@@ -2,6 +2,7 @@
   <div id="app">
     <img alt="Harvard Art Mueseum logo" src="./assets/HAM-logo-reduced.png">
     <h1>HAM Art Randomizer</h1>
+    <p>{{ this.date }}</p>
 
     <div class="card">
       <h2>Audio</h2>
@@ -107,6 +108,7 @@ export default {
       isLoading: true,
       error: '',
       key: process.env.VUE_APP_KEY, 
+      date: ''
     }
   },
   mounted: function() {
@@ -121,8 +123,13 @@ export default {
     this.getPeriods()
     this.getPublications()
     this.getTechniques()
+    this.displayDate()
   },
   methods: {
+    displayDate() {
+    let today = new Date().toLocaleDateString();
+    this.date = today
+    },
     generateRandom: function () {
       return Math.round(Math.random() * 10)
     },
