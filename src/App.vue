@@ -89,6 +89,8 @@ export default {
     this.getVideos() 
     this.getAudios()
     this.getColors()
+    this.getCultures()
+    this.getExhibitions()
   },
   methods: {
     generateRandom: function () {
@@ -134,6 +136,17 @@ export default {
         const data = await response.json()
         const cultures = data.records
         this.culture = cultures[index]
+      } catch (errorMsg) {
+        this.error = errorMsg
+      }
+    },
+     getExhibitions: async function() {
+      let index = this.generateRandom()
+      try { 
+        const response = await fetch('https://api.harvardartmuseums.org/culture?apikey=8520a750-fe96-11e9-9058-a9d79115374a')
+        const data = await response.json()
+        const exhibitions = data.records
+        this.exhibition = exhibitions[index]
       } catch (errorMsg) {
         this.error = errorMsg
       }
