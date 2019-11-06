@@ -1,5 +1,5 @@
 # HAM Art Randomizer
-Harvard Art mm Museum Art Randomizer
+Harvard Art Museum Art Randomizer
 
 Visit the deployed Vue.js [HAM Art Randomizer](https://vue-harvard-art.herokuapp.com/) application.
 
